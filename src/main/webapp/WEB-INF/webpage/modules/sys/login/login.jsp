@@ -32,7 +32,6 @@
                 <h1><spring:message code="sys.login.submit.label"/></h1>
             </div>
             <div class="body-content">
-                <p>JeeWeb欢迎您！</p>
                 <div class="form-group">
                     <div class="input-icon right"><i class="fa fa-user"></i>
                         <input name="username" class="form-control" placeholder="<spring:message code="sys.login.username.placeholder"/>" required="">
@@ -40,7 +39,7 @@
                 </div>
                 <div class="form-group">
                     <div class="input-icon right"><i class="fa fa-key"></i>
-                        <input name="password" class="form-control" placeholder="<spring:message code="sys.login.password.placeholder"/>" required="">
+                        <input type="password" name="password" class="form-control" placeholder="<spring:message code="sys.login.password.placeholder"/>" required="">
                     </div>
                 </div>
                 <c:if test="${showCaptcha eq 1}">
@@ -55,13 +54,13 @@
                 <div class="clearfix"></div>
                 </c:if>
                 <div class="form-group" style="margin-top:10px;">
-	                <div class="pull-left">
-	                    <div class="checkbox-list">
-	                        <label><input id="rememberMe"  type="checkbox" name="rememberMe" value="1" class="i-checks">&nbsp; <spring:message code="sys.login.rememberMe"/></label>
-	                    </div>
-	                </div>
-	                <div class="pull-right">
-	                    <button type="submit" class="btn btn-success"><spring:message code="sys.login.submit.label"/> &nbsp;
+<%--	                <div class="pull-left">--%>
+<%--	                    <div class="checkbox-list">--%>
+<%--	                        <label><input id="rememberMe"  type="checkbox" name="rememberMe" value="1" class="i-checks">&nbsp; <spring:message code="sys.login.rememberMe"/></label>--%>
+<%--	                    </div>--%>
+<%--	                </div>--%>
+	                <div style="text-align: center">
+	                    <button type="submit" style="width: 100%;" class="btn btn-success"><spring:message code="sys.login.submit.label"/> &nbsp;
 	                        <i class="fa fa-chevron-circle-right"></i>
 	                    </button>
 	                </div>
@@ -71,7 +70,6 @@
                     <span>默认账号密码:<b>admin/123456</span>
                 </div>
                 <hr>
-                <p>如果您没有帐号? <a id="btn-register" href="#">请注册</a>
                 </p>
             </div>
         </form>

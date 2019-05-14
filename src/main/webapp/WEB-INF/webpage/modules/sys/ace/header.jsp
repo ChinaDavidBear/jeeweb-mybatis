@@ -1,15 +1,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <div class="navbar-container ace-save-state" id="navbar-container">
 	<!-- #section:basics/sidebar.mobile.toggle -->
-	<button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
-		<span class="sr-only">Toggle sidebar</span>
+<%--	<button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">--%>
+<%--		<span class="sr-only">Toggle sidebar</span>--%>
 
-		<span class="icon-bar"></span>
+<%--		<span class="icon-bar"></span>--%>
 
-		<span class="icon-bar"></span>
+<%--		<span class="icon-bar"></span>--%>
 
-		<span class="icon-bar"></span>
-	</button>
+<%--		<span class="icon-bar"></span>--%>
+<%--	</button>--%>
 
 	<!-- /section:basics/sidebar.mobile.toggle -->
 	<div class="navbar-header pull-left">
