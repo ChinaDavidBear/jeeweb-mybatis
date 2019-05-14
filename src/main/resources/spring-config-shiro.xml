@@ -170,6 +170,7 @@
         <property name="filterChainDefinitions">
             <value>
                 /static/** = anon
+                /front/** = anon
                 /jcaptcha* = anon
                 /upload/** = anon
                 /weixin/mp/front/** = anon

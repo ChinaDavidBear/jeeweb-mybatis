@@ -7,7 +7,7 @@
   <meta name="decorator" content="list"/>
 </head>
 <body title="QOptions">
-<grid:grid id="tbQOptionsGridId" url="${adminPath}/question/tbqoptions/ajaxList">
+<grid:grid id="tbQOptionsGridId" url="${adminPath}/question/tbqoptions/ajaxList" sortname="score">
 	<grid:column label="sys.common.key" hidden="true"   name="id" width="100"/>
 	<grid:column label="sys.common.opt"  name="opt" formatter="button" width="100"/>
 	<grid:button groupname="opt" function="delete" />
