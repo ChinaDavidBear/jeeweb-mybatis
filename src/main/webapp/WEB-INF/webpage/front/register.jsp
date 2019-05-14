@@ -29,7 +29,7 @@
     <div class="page-form">
         <form  id="registerForm"  method="post" class="form" action="/front/doRegister">
             <div class="header-content">
-                <h1>注册</h1>
+                <h1>会员注册</h1>
             </div>
             <div class="body-content">
                 <div class="form-group">
