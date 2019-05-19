@@ -1,4 +1,4 @@
-package cn.jeeweb.modules.question.question.entity;
+package cn.jeeweb.modules.question.forum.entity;
 
 import cn.jeeweb.core.common.entity.AbstractEntity;
 import com.baomidou.mybatisplus.annotations.TableId;
@@ -10,26 +10,23 @@ import cn.jeeweb.modules.sys.entity.User;
 import java.util.Date;
 
 /**   
- * @Title: Question
- * @Description: Question
+ * @Title: ForumPost
+ * @Description: ForumPost
  * @author David
- * @date 2019-05-14 11:45:05
+ * @date 2019-05-19 14:22:52
  * @version V1.0   
  *
  */
-@TableName("tb_q_question")
+@TableName("tb_forum_post")
 @SuppressWarnings("serial")
-public class TbQQuestion extends AbstractEntity<String> {
+public class TbForumPost extends AbstractEntity<String> {
 
     /**字段主键*/
     @TableId(value = "id", type = IdType.UUID)
 	private String id;
-    /**题目*/
-    @TableField(value = "context")
-	private String context;
-    /**排序*/
-    @TableField(value = "sort")
-	private Integer sort;
+    /**标题*/
+    @TableField(value = "title")
+	private String title;
     /**创建者*/
     @TableField(value = "create_by",el="createBy.id",fill = FieldFill.INSERT)
 	private User createBy;
@@ -48,7 +45,7 @@ public class TbQQuestion extends AbstractEntity<String> {
     /**备注信息*/
     @TableField(value = "remarks")
 	private String remarks;
-
+	
 	/**
 	 * 获取  id
 	 *@return: String  字段主键
@@ -65,34 +62,19 @@ public class TbQQuestion extends AbstractEntity<String> {
 		this.id = id;
 	}
 	/**
-	 * 获取  context
-	 *@return: String  题目
+	 * 获取  title
+	 *@return: String  标题
 	 */
-	public String getContext(){
-		return this.context;
+	public String getTitle(){
+		return this.title;
 	}
 
 	/**
-	 * 设置  context
-	 *@param: context  题目
+	 * 设置  title
+	 *@param: title  标题
 	 */
-	public void setContext(String context){
-		this.context = context;
-	}
-	/**
-	 * 获取  sort
-	 *@return: Integer  排序
-	 */
-	public Integer getSort(){
-		return this.sort;
-	}
-
-	/**
-	 * 设置  sort
-	 *@param: sort  排序
-	 */
-	public void setSort(Integer sort){
-		this.sort = sort;
+	public void setTitle(String title){
+		this.title = title;
 	}
 	/**
 	 * 获取  createBy

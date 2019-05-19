@@ -7,7 +7,7 @@
 <html lang="en">
 
 <head>
-    <title><spring:message code="sys.site.title" arguments="${platformName}"/></title>
+    <title>个人信息</title>
     <meta name="keywords" content="<spring:message code="sys.site.keywords" arguments="${platformName}"/>">
     <meta name="description" content="<spring:message code="sys.site.description" arguments="${platformName}"/>">
     
@@ -27,56 +27,63 @@
 
 <body id="signin-page">
     <div class="page-form">
-        <form  id="registerForm"  method="post" class="form" action="/front/doRegister">
+        <form  id="loginform"  method="post" class="form" action="/front/userupdate">
             <div class="header-content">
-                <h1>会员注册</h1>
+                <h1>会员信息</h1>
             </div>
             <div class="body-content">
                 <div class="form-group">
                     <div class="input-icon right"><i class="fa fa-user"></i>
-                        <input name="name" class="form-control" placeholder="昵称" required="">
+                        <input name="id" value="${sessionScope.FRONT_USER.id}" type="hidden">
+                        <input name="name" class="form-control" value="${sessionScope.FRONT_USER.name}" required="">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="input-icon right"><i class="fa fa-user"></i>
-                        <input name="account" class="form-control" placeholder="账号" required="">
+                        <input name="account" class="form-control" readonly value="${sessionScope.FRONT_USER.account}" required="">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="input-icon right"><i class="fa fa-key"></i>
-                        <input type="password" name="password" class="form-control" placeholder="<spring:message code="sys.login.password.placeholder"/>" required="">
+                        <input type="password" name="password" class="form-control" value="${sessionScope.FRONT_USER.password}" required="">
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="input-icon right"><i class="fa fa-envelope-open"></i>
-                        <input name="email" class="form-control" placeholder="邮箱" required="">
+                    <div class="input-icon right"><i class="fa fa-envelope"></i>
+                        <input type="email" name="email" class="form-control" value="${sessionScope.FRONT_USER.email}" required="">
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="input-icon right">
-                        性别：
-                        <select name="sex" class="form-control"  required="">
-                            <option value="1">男</option>
-                            <option value="2">女</option>
+                    <div class="input-icon right"><i class="fa fa-users"></i>
+                        <select name="sex" class="form-control">
+                            <option value="1"
+                            <c:if test="${sessionScope.FRONT_USER.sex == 1}">
+                                selected
+                            </c:if>
+                            >男</option>
+                            <option value="2"
+                                    <c:if test="${sessionScope.FRONT_USER.sex == 2}">
+                                        selected
+                                    </c:if>
+                            >女</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group" style="margin-top:10px;">
-<%--	                <div class="pull-left">--%>
-<%--	                    <div class="checkbox-list">--%>
-<%--	                        <label><input id="rememberMe"  type="checkbox" name="rememberMe" value="1" class="i-checks">&nbsp; <spring:message code="sys.login.rememberMe"/></label>--%>
-<%--	                    </div>--%>
-<%--	                </div>--%>
 	                <div style="text-align: center">
-	                    <button type="submit" style="width: 100%;" class="btn btn-success">
-                            提交注册&nbsp;
+	                    <button type="submit" style="width: 100%;" class="btn btn-success">保存信息 &nbsp;
 	                        <i class="fa fa-chevron-circle-right"></i>
 	                    </button>
 	                </div>
 	            </div>
                 <div class="clearfix"></div>
+                <div class="forget-password" style="text-align: center;">
+                    <c:if test="${not empty member}">
+                    <span style="color: red;">${member.remarks}</span>
+                    </c:if>
+                </div>
                 <hr>
-                <p><a href="/front/login">已有账号</a> <a style=" float: right;" href="/front">返回首页</a></p>
+                <p><a href="/front">返回首页</a></p>
             </div>
         </form>
     </div>
@@ -87,10 +94,24 @@
     <script src="${staticPath}/uadmin/js/html5shiv.js"></script>
     <script src="${staticPath}/uadmin/js/respond.min.js"></script>
     <script src="${staticPath}/uadmin/js/jquery.menu.js"></script>
-
+    <script>
+        //BEGIN CHECKBOX & RADIO
+        $('input[type="checkbox"]').iCheck({
+            checkboxClass: 'icheckbox_minimal-grey',
+            increaseArea: '20%' // optional
+        });
+        $('input[type="radio"]').iCheck({
+            radioClass: 'iradio_minimal-grey',
+            increaseArea: '20%' // optional
+        });
+        //END CHECKBOX & RADIO
+        function changeJcaptchaSrc(){  
+            document.getElementById("img_jcaptcha").src='${appPath}/jcaptcha.jpg?_='+(new Date()).getTime();  
+        }  
+    </script>
      <script type="text/javascript">
 		$(document).ready(function() {
-		     $("#registerForm").bootstrapValidator();
+		     $("#loginform").bootstrapValidator();
 		     var error="${error}";
 		     if (error!="")
 		     {

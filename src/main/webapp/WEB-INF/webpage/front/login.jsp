@@ -27,14 +27,14 @@
 
 <body id="signin-page">
     <div class="page-form">
-        <form  id="loginform"  method="post" class="form">
+        <form  id="loginform"  method="post" class="form" action="/front/doLogin">
             <div class="header-content">
-                <h1><spring:message code="sys.login.submit.label"/></h1>
+                <h1>会员登录</h1>
             </div>
             <div class="body-content">
                 <div class="form-group">
                     <div class="input-icon right"><i class="fa fa-user"></i>
-                        <input name="username" class="form-control" placeholder="<spring:message code="sys.login.username.placeholder"/>" required="">
+                        <input name="account" class="form-control" placeholder="<spring:message code="sys.login.username.placeholder"/>" required="">
                     </div>
                 </div>
                 <div class="form-group">
@@ -60,17 +60,19 @@
 <%--	                    </div>--%>
 <%--	                </div>--%>
 	                <div style="text-align: center">
-	                    <button type="submit" style="width: 100%;" class="btn btn-success"><spring:message code="sys.login.submit.label"/> &nbsp;
+	                    <button type="submit" style="width: 100%;" class="btn btn-success">登录 &nbsp;
 	                        <i class="fa fa-chevron-circle-right"></i>
 	                    </button>
 	                </div>
 	            </div>
                 <div class="clearfix"></div>
-                <div class="forget-password">
-                    <span>默认账号密码:<b>admin/123456</b></span>
+                <div class="forget-password" style="text-align: center;">
+                    <c:if test="${not empty member}">
+                    <span style="color: red;">${member.remarks}</span>
+                    </c:if>
                 </div>
                 <hr>
-                <p><a href="/front/register">立即注册</a> </p>
+                <p><a href="/front/register">立即注册</a>  <a style="    float: right;" href="/front">返回首页</a></p>
             </div>
         </form>
     </div>

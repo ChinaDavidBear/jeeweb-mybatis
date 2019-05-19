@@ -5481,7 +5481,7 @@ if ( !jQuery.support.submitBubbles ) {
 				var elem = e.target,
 					form = jQuery.nodeName( elem, "input" ) || jQuery.nodeName( elem, "button" ) ? elem.form : undefined;
 				if ( form && !jQuery._data( form, "submitBubbles" ) ) {
-					jQuery.event.add( form, "submit._submit", function( event ) {
+					jQuery.event.add( form, "submit._submit", function(event ) {
 						event._submit_bubble = true;
 					});
 					jQuery._data( form, "submitBubbles", true );
